@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:custom="clr-namespace:XFBarcode.Custom"
+             x:Class="XFBarcode.Views.ScanPage">
+
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <forms:ZXingScannerView IsTorchOn="{Binding IsTorchOn}"  IsScanning="{Binding IsScanning}" IsAnalyzing="{Binding IsAnalyzing}" Result="{Binding Result, Mode=TwoWay}" ScanResultCommand="{Binding QRScanResultCommand}"/>
+        <custom:ZXingDefaultOverlayCustom ShowFlashButton="False" FlashCommand="{Binding FlashOnCommand }"/>
+        <!--<forms:ZXingDefaultOverlay  TopText="sample bottom text" BottomText="sample bottom text" ShowFlashButton="True" FlashCommand="{Binding BindingContext.FlashOnCommand }"></forms:ZXingDefaultOverlay>-->
+    </Grid>
+</ContentPage>

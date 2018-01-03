@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:custom="clr-namespace:XFBarcode.Custom"
+             x:Class="XFBarcode.Views.MainPage"
+             Title="{Binding Title}">
+
+    <StackLayout
+        Orientation="Vertical"
+        HorizontalOptions="CenterAndExpand" 
+        VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <Button Text="Scan" Command="{Binding ScanCommand}"/>
+        <Button Text="Encode"  Command="{Binding EncodeCommand}"/>
+        
+        <!--<custom:BarcodeImageView BarcodeFormat="{Binding BarcodeFormat, Mode=TwoWay}" 
+                                BarcodeValue="{Binding BarcodeValue, Mode=TwoWay}"
+                                 BarcodeOptions="{Binding Options}"/>-->
+        <forms:ZXingBarcodeImageView BarcodeFormat="{Binding BarcodeFormat, Mode=TwoWay}" 
+                                     BarcodeValue="{Binding BarcodeValue, Mode=TwoWay}"
+                                     BarcodeOptions="{Binding Options}"
+                                     HeightRequest="200"
+                                     WidthRequest="200"/>
+    </StackLayout>
+
+</ContentPage>
