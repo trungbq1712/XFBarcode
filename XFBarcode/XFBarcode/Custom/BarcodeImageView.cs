@@ -11,7 +11,7 @@ namespace XFBarcode.Custom
     {
         public BarcodeImageView() : base()
         {
-
+            //tess
         } 
 
         public static readonly BindableProperty BarcodeFormatProperty =
