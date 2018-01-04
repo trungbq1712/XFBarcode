@@ -62,7 +62,7 @@ namespace XFBarcode.ViewModels
                 OnAction = (result) => {
                     if(result.Ok==true && result.Text!="")
                     {
-                        BarcodeValue = "Hello dev";
+                        BarcodeValue = result.Text;
                         BarcodeFormat = ZXing.BarcodeFormat.CODE_128;
                     }
                     else

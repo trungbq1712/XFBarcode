@@ -7,7 +7,9 @@
 
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <forms:ZXingScannerView IsTorchOn="{Binding IsTorchOn}"  IsScanning="{Binding IsScanning}" IsAnalyzing="{Binding IsAnalyzing}" Result="{Binding Result, Mode=TwoWay}" ScanResultCommand="{Binding QRScanResultCommand}"/>
-        <custom:ZXingDefaultOverlayCustom ShowFlashButton="False" FlashCommand="{Binding FlashOnCommand }"/>
+        <custom:ZXingDefaultOverlayCustom ShowFlashButton="True" FlashCommand="{Binding FlashOnCommand }"/>
         <!--<forms:ZXingDefaultOverlay  TopText="sample bottom text" BottomText="sample bottom text" ShowFlashButton="True" FlashCommand="{Binding BindingContext.FlashOnCommand }"></forms:ZXingDefaultOverlay>-->
+
+        <Button Text="Flash" WidthRequest="100" HeightRequest="50" VerticalOptions="End" HorizontalOptions="End" Command="{Binding TurnOnCommand}"></Button>
     </Grid>
 </ContentPage>

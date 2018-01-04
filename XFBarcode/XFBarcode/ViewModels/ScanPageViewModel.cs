@@ -44,7 +44,7 @@ namespace XFBarcode.ViewModels
             QRScanResultCommand = new DelegateCommand(OnScanResult);
             FlashOnCommand = new DelegateCommand(OnFlash);
             TurnOnCommand = new DelegateCommand(OnTurnOn);
-            IsTorchOn = true;
+            //IsTorchOn = true;
             IsAnalyzing = true;
             IsScanning = true;
             
@@ -52,7 +52,7 @@ namespace XFBarcode.ViewModels
 
         public void OnTurnOn()
         {
-            
+            IsTorchOn = !IsTorchOn;
         }
 
         public void OnFlash()
