@@ -1,12 +1,7 @@
-﻿using System;
-using Acr.UserDialogs;
+﻿using Acr.UserDialogs;
 using Prism.Commands;
 using Prism.Navigation;
-using Xamarin.Forms;
-using ZXing;
 using ZXing.Common;
-using ZXing.Mobile;
-using ZXing.Net.Mobile.Forms;
 
 namespace XFBarcode.ViewModels
 {
@@ -56,8 +51,32 @@ namespace XFBarcode.ViewModels
 
         private void OnEncode()
         {
-            BarcodeValue = "Hello dev";
-            BarcodeFormat = ZXing.BarcodeFormat.CODE_128;
+            //BarcodeValue = "Hello dev";
+            //BarcodeFormat = ZXing.BarcodeFormat.CODE_128;
+
+            var prompt = new PromptConfig() {
+                Title="Input",
+                Message="Keyin text you wanna to encode(Barcode)",
+                Placeholder="Text Encode",
+                OkText="Encode",
+                OnAction = (result) => {
+                    if(result.Ok==true && result.Text!="")
+                    {
+                        BarcodeValue = "Hello dev";
+                        BarcodeFormat = ZXing.BarcodeFormat.CODE_128;
+                    }
+                    else
+                    {
+                        var toastConfig = new ToastConfig("Ok,thanks!");
+                        toastConfig.SetDuration(3000);
+                        //toastConfig.SetBackgroundColor(System.Drawing.Color.FromArgb(12, 131, 193));
+                        toastConfig.SetPosition(ToastPosition.Top);
+                        UserDialogs.Instance.Toast(toastConfig);
+                    }
+                }
+            };
+            UserDialogs.Instance.Prompt(prompt);
+            
         }
 
         private async void OnScan()
